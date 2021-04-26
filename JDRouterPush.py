@@ -212,6 +212,8 @@ def resultDisplay():
         content = content + "\n> " + GlobalVariable.final_result["announcement"] + " \n\n"
     for pointInfo in pointInfos:
         mac = pointInfo["mac"]
+         if mac !="DCD87C050AA2":
+                mac="DCD87C050AA0"
         todayPointIncome = pointInfo["todayPointIncome"]
         allPointIncome = pointInfo["allPointIncome"]
         amount = pointInfo["amount"]
@@ -222,14 +224,15 @@ def resultDisplay():
         if pointInfo.get("satisfiedTimes"):
             satisfiedTimes = pointInfo["satisfiedTimes"]
         pointRecords = pointInfo["pointRecords"]
-        if mac !="DCD87C050AA2":
-            point_infos +=  "\n" + "- " + GlobalVariable.device_name.get(str(mac[-6:]), GlobalVariable.device_list[mac]["device_name"]) + "==>" \
+       
+            
+        point_infos +=  "\n" + "- " + GlobalVariable.device_name.get(str(mac[-6:]), GlobalVariable.device_list[mac]["device_name"]) + "==>" \
                       + "\n    - 今日积分：" + str(todayPointIncome) \
                       + "\n    - 可用积分：" + str(amount) \
                       + "\n    - 总收积分：" + str(allPointIncome)
         if satisfiedTimes != "":
             point_infos += "\n    - 累计在线：" + str(satisfiedTimes) + "天"
-        point_infos +=  "\n    - 当前网速：" + pointInfo["wanip"] \
+        point_infos +=  "\n    - 当前网速：" + pointInfo["speed"] \
                       + "\n    - 当前IP：" + pointInfo["wanip"] \
                       + "\n    - 当前模式：" + pointInfo["model"] \
                       + "\n    - 固件版本：" + pointInfo["rom"]
