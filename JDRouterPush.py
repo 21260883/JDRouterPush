@@ -113,8 +113,9 @@ def todayPointDetail():
         GlobalVariable.final_result["pointInfos"] = pointInfos
         for info in pointInfos:
             mac = info["mac"]
-            MACS.append(mac)
-            routerActivityInfo(mac)
+            if mac !="DCD87C050AA2":
+                MACS.append(mac)
+            #routerActivityInfo(mac)
             routerAccountInfo(mac)
             pointOperateRecordsShow(mac)
 
