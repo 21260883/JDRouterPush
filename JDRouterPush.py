@@ -121,8 +121,9 @@ def todayPointDetail():
         JDServiceAPI.getListAllUserDevices()
         
         for mac in MACS:
-            JDServiceAPI.getControlDevice(mac,2)
-            JDServiceAPI.getControlDevice(mac,3)
+            if mac != "DCD87C050AA2":
+                JDServiceAPI.getControlDevice(mac,2)
+                JDServiceAPI.getControlDevice(mac,3)
     else:
         print("Request todayPointDetail failed!")
 
