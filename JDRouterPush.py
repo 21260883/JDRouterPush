@@ -224,13 +224,13 @@ def resultDisplay():
         if pointInfo.get("satisfiedTimes"):
             satisfiedTimes = pointInfo["satisfiedTimes"]
         pointRecords = pointInfo["pointRecords"]
-        point_infos +=  "\n" + GlobalVariable.device_name.get(str(mac[-6:]), GlobalVariable.device_list[mac]["device_name"]) + "==>" \
+        point_infos +=  "\n" + GlobalVariable.device_name.get(str(mac[-6:]), GlobalVariable.device_list[mac]["device_name"]) + "==>"+mac \
                       + "\n-今日积分：" + str(todayPointIncome) \
                       + "\n-可用积分：" + str(amount) \
                       + "\n-总收积分：" + str(allPointIncome)
         if satisfiedTimes != "":
             point_infos += "\n-累计在线：" + str(satisfiedTimes) + "天"
-        point_infos +=  "\n-当前网速：" + pointInfo["speed"] \
+        point_infos +=  "\n-" + pointInfo["speed"] \
                       + "\n-当前IP：" + pointInfo["wanip"] \
                       + "\n-当前模式：" + pointInfo["model"] \
                       + "\n-固件版本：" + pointInfo["rom"]
@@ -252,7 +252,7 @@ def resultDisplay():
                 recordType_str = "支出："
             pointAmount = pointRecord["pointAmount"]
             createTime = pointRecord["createTime"]
-            point_infos = point_infos + "\n        - " + \
+            point_infos = point_infos + "\n - " + \
                           createTime + "  " + recordType_str + str(pointAmount)
     notifyContentJson = {"content": content, "date": todayDate, "total_today": today_total_point,
                          "avail_today": total_avail_point, "account": bindAccount, "devicesCount": totalRecord,
