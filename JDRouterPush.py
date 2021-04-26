@@ -212,6 +212,7 @@ def resultDisplay():
         content = content + "\n> " + GlobalVariable.final_result["announcement"] + " \n\n"
     for pointInfo in pointInfos:
         mac = pointInfo["mac"]
+        print(mac)
         if mac == "DCD87C050AA2":
             mac = "DCD87C050AA0"
         todayPointIncome = pointInfo["todayPointIncome"]
