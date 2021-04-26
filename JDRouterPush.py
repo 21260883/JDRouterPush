@@ -121,9 +121,8 @@ def todayPointDetail():
         JDServiceAPI.getListAllUserDevices()
         
         for mac in MACS:
-            if mac != "DCD87C050AA2":
-                JDServiceAPI.getControlDevice(mac,2)
-                JDServiceAPI.getControlDevice(mac,3)
+            JDServiceAPI.getControlDevice(mac,2)
+            JDServiceAPI.getControlDevice(mac,3)
     else:
         print("Request todayPointDetail failed!")
 
@@ -212,9 +211,6 @@ def resultDisplay():
         content = content + "\n> " + GlobalVariable.final_result["announcement"] + " \n\n"
     for pointInfo in pointInfos:
         mac = pointInfo["mac"]
-        print(mac)
-        if mac == "DCD87C050AA2":
-            mac = "DCD87C050AA0"
         todayPointIncome = pointInfo["todayPointIncome"]
         allPointIncome = pointInfo["allPointIncome"]
         amount = pointInfo["amount"]
@@ -225,8 +221,6 @@ def resultDisplay():
         if pointInfo.get("satisfiedTimes"):
             satisfiedTimes = pointInfo["satisfiedTimes"]
         pointRecords = pointInfo["pointRecords"]
-       
-            
         point_infos +=  "\n" + "- " + GlobalVariable.device_name.get(str(mac[-6:]), GlobalVariable.device_list[mac]["device_name"]) + "==>" \
                       + "\n    - 今日积分：" + str(todayPointIncome) \
                       + "\n    - 可用积分：" + str(amount) \
