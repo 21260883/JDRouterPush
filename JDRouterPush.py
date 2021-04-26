@@ -213,7 +213,7 @@ def resultDisplay():
     for pointInfo in pointInfos:
         mac = pointInfo["mac"]
         if mac == "DCD87C050AA2":
-	    continue
+		continue
         todayPointIncome = pointInfo["todayPointIncome"]
         allPointIncome = pointInfo["allPointIncome"]
         amount = pointInfo["amount"]
